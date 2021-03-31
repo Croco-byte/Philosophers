@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 14:59:44 by user42            #+#    #+#             */
-/*   Updated: 2021/03/31 11:20:28 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/31 16:24:48 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	launch_philosophers(t_data *data, t_philo *philo, t_stock *stock)
 		philo[i].pid = fork();
 		if (philo[i].pid == 0)
 			live_philosopher(stock);
-		usleep(30);
+		usleep(35);
 		i++;
 	}
 }

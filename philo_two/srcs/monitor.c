@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 10:59:49 by user42            #+#    #+#             */
-/*   Updated: 2021/03/29 16:05:11 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/31 16:15:21 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ void	monitor_meals(t_data *data, t_philo *philo)
 {
 	while (!data->one_died && data->all_meals < data->n_philo)
 		usleep(10);
-	if (data->one_died || data->all_meals >= data->n_philo)
-		kill_philosophers(data, philo);
 	if (!data->one_died && data->all_meals >= data->n_philo)
 	{
 		sem_wait(philo->sem_display);
 		display_all_ate(data);
 	}
+	if (data->one_died || data->all_meals >= data->n_philo)
+		kill_philosophers(data, philo);
 }
 
 void	monitor(t_data *data, t_philo *philo)

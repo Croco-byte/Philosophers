@@ -6,7 +6,7 @@
 #    By: user42 <user42@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 15:05:16 by user42            #+#    #+#              #
-#    Updated: 2021/03/29 16:04:49 by user42           ###   ########.fr        #
+#    Updated: 2021/03/31 16:12:28 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Wextra -I includes/ -I ../common/includes
 PTHREAD = -lpthread
 
 COMMON = ft_strlen ft_strdup ft_utoa ft_itoa ft_atoi ft_isspace ft_atol ft_strjoin parse time
-MAIN = philo_two init display monitor philo_actions
+MAIN = philo_two init display monitor philo_actions live
 
 
 SRCS =  $(addsuffix .c, $(addprefix ../common/srcs/, $(COMMON))) \

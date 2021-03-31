@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 11:18:23 by user42            #+#    #+#             */
-/*   Updated: 2021/03/31 15:22:08 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/31 16:12:18 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	philo_think(t_stock *s)
 	if (s->data->one_died)
 		return ;
 	pthread_mutex_lock(s->philo->display);
-	display_status(s, "	is thinking");
+	if (!s->data->one_died)
+		display_status(s, "	is thinking");
 	pthread_mutex_unlock(s->philo->display);
 }
