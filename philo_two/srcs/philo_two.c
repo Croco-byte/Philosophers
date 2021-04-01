@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 14:59:44 by user42            #+#    #+#             */
-/*   Updated: 2021/03/31 16:23:06 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/01 11:50:10 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,3 +80,41 @@ int	main(int ac, char **av)
 	clean(data, philo, stock);
 	return (0);
 }
+
+/*
+void	*live_philosopher(void *stock)
+{
+	int			i;
+	t_stock		*s;
+	t_data		*data;
+	t_philo		*philo;
+	pthread_t	check_thread;
+
+	i = 0;
+	s = (t_stock *)stock;
+	data = s->data;
+	philo = s->philo;
+	philo->life = TRUE;
+	pthread_create(&check_thread, NULL, &check, s);
+	while (!data->one_died && (data->n_eat == -1 || i < data->n_eat))
+	{
+		pthread_detach(check_thread);
+		pthread_create(&check_thread, NULL, &check, s);
+		take_forks(s, philo);
+		philo_eat(s, philo);
+		i++;
+		if (data->n_eat != -1 && i >= data->n_eat)
+		{
+			data->all_meals++;
+			break ;
+		}
+		philo_sleep(s);
+		philo_think(s);
+	}
+	pthread_mutex_unlock(&philo->l_fork->lock);
+	pthread_mutex_unlock(&philo->r_fork->lock);
+	philo->life = FALSE;
+	pthread_detach(check_thread);
+	return (NULL);
+}
+*/

@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 11:18:23 by user42            #+#    #+#             */
-/*   Updated: 2021/03/31 16:22:44 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/01 11:50:21 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,23 +41,23 @@ void	philo_eat(t_stock *s, t_philo *philo)
 	sem_post(philo->sem_forks);
 }
 
-void	philo_sleep(t_stock *s, t_philo *philo)
+void	philo_sleep(t_stock *s)
 {
 	if (s->data->one_died)
 		return ;
-	sem_wait(philo->sem_display);
+	sem_wait(s->philo->sem_display);
 	if (!s->data->one_died)
 		display_status(s, "	is sleeping");
-	sem_post(philo->sem_display);
+	sem_post(s->philo->sem_display);
 	usleep(s->data->t_sleep * 1000);
 }
 
-void	philo_think(t_stock *s, t_philo *philo)
+void	philo_think(t_stock *s)
 {
 	if (s->data->one_died)
 		return ;
-	sem_wait(philo->sem_display);
+	sem_wait(s->philo->sem_display);
 	if (!s->data->one_died)
 		display_status(s, "	is thinking");
-	sem_post(philo->sem_display);
+	sem_post(s->philo->sem_display);
 }

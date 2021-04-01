@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 14:58:27 by user42            #+#    #+#             */
-/*   Updated: 2021/03/31 16:02:58 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/31 17:28:49 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_philo
 	unsigned int	id;
 	unsigned int	last_meal;
 	unsigned int	life;
+	unsigned int	full;
 	pthread_t		thread;
 	t_fork			*l_fork;
 	t_fork			*r_fork;

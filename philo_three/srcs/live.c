@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/31 16:00:56 by user42            #+#    #+#             */
-/*   Updated: 2021/04/01 12:24:20 by user42           ###   ########.fr       */
+/*   Created: 2021/03/31 16:28:33 by user42            #+#    #+#             */
+/*   Updated: 2021/04/01 13:19:15 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo_two.h"
+#include "philo_three.h"
 
 void	*check(void *stock)
 {
@@ -28,14 +28,12 @@ void	*check(void *stock)
 	{
 		if (!data->one_died)
 		{
-			if (!philo->full)
-			{
-				data->one_died = 1;
-				sem_wait(philo->sem_display);
-				display_status(s, "	has died");
-				sem_post(philo->sem_display);
-			}
+			data->one_died = 1;
+			sem_wait(philo->sem_display);
+			display_status(s, "	has died");
+			sem_post(philo->sem_display);
 		}
+		exit(2);
 	}
 	return (NULL);
 }
@@ -55,30 +53,24 @@ void	action_manager(t_stock *s, t_data *data, t_philo *philo)
 		philo_eat(s, philo);
 		i++;
 		if (data->n_eat != -1 && i >= data->n_eat)
-		{
-			philo->full = 1;
-			data->all_meals++;
 			break ;
-		}
-		philo_sleep(s);
-		philo_think(s);
+		philo_sleep(s, philo);
+		philo_think(s, philo);
 	}
+	philo->life = FALSE;
 	pthread_join(check_thread, 0);
+	if (data->n_eat != -1 && i >= data->n_eat)
+		exit(3);
+	exit(2);
 }
 
-void	*live_philosopher(void *stock)
+void	live_philosopher(t_stock *s)
 {
-	t_stock		*s;
 	t_data		*data;
 	t_philo		*philo;
 
-	s = (t_stock *)stock;
 	data = s->data;
 	philo = s->philo;
 	philo->life = TRUE;
 	action_manager(s, data, philo);
-	sem_post(philo->sem_forks);
-	sem_post(philo->sem_forks);
-	philo->life = FALSE;
-	return (NULL);
 }

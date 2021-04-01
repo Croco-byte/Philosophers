@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 13:26:45 by user42            #+#    #+#             */
-/*   Updated: 2021/03/31 11:43:41 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/31 17:29:17 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	init_philosophers(int n_philo, t_philo *philo)
 	init_display(n_philo, philo);
 	while (i < n_philo)
 	{
+		philo[i].full = 0;
 		philo[i].id = i + 1;
 		philo[i].last_meal = 0;
 		philo[i].life = FALSE;

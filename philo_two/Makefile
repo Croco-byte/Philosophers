@@ -6,7 +6,7 @@
 #    By: user42 <user42@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 15:05:16 by user42            #+#    #+#              #
-#    Updated: 2021/03/31 16:12:28 by user42           ###   ########.fr        #
+#    Updated: 2021/04/01 11:50:51 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,12 @@ NAME = philo_two
 
 CC = clang
 
-CFLAGS = -Wall -Wextra -I includes/ -I ../common/includes
+CFLAGS = -Wall -Wextra -Werror -I includes/ -I ../common/includes
+#-fsanitize=address -g3 -fno-omit-frame-pointer 
 PTHREAD = -lpthread
 
 COMMON = ft_strlen ft_strdup ft_utoa ft_itoa ft_atoi ft_isspace ft_atol ft_strjoin parse time
-MAIN = philo_two init display monitor philo_actions live
+MAIN = philo_two init display philo_actions monitor live
 
 
 SRCS =  $(addsuffix .c, $(addprefix ../common/srcs/, $(COMMON))) \

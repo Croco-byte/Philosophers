@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 10:59:49 by user42            #+#    #+#             */
-/*   Updated: 2021/03/31 14:00:24 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/31 17:38:18 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	monitor_meals(t_data *data, t_philo *philo)
 	{
 		pthread_mutex_lock(philo->display);
 		display_all_ate(data);
+		pthread_mutex_unlock(philo->display);
 	}
 	if (data->one_died || data->all_meals >= data->n_philo)
 		kill_philosophers(data, philo);

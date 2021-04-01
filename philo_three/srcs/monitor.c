@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 10:59:49 by user42            #+#    #+#             */
-/*   Updated: 2021/03/30 16:08:25 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/31 17:16:40 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	kill_philosophers(t_data *data, t_philo *philo)
 	}
 }
 
-int		check_child(t_data *data, t_philo *philo, int i, int *finished_eating)
+int	check_child(t_data *data, t_philo *philo, int i, int *finished_eating)
 {
 	int	status;
 

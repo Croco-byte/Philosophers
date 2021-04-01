@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 13:26:45 by user42            #+#    #+#             */
-/*   Updated: 2021/03/30 14:04:09 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/31 17:16:22 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,10 @@ void	init_philosophers(int n_philo, t_philo *philo)
 {
 	sem_t	*display;
 	sem_t	*forks;
-	int	i;
+	int		i;
 
 	sem_unlink("display");
 	sem_unlink("forks");
-
 	i = 0;
 	display = sem_open("display", O_CREAT | O_EXCL, S_IRWXU, 1);
 	forks = sem_open("forks", O_CREAT | O_EXCL, S_IRWXU, n_philo);
