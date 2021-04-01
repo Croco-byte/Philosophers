@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 15:31:52 by user42            #+#    #+#             */
-/*   Updated: 2021/03/31 16:57:26 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/01 13:33:04 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	display_all_ate(t_data *data)
 
 	time = ft_utoa(get_time(data->t_start_usec, data->t_start_sec));
 	write(1, time, ft_strlen(time));
-	write(1, "	all meals ate\n", 15);
+	write(1, "		all meals ate\n", 16);
 	free(time);
 }
 
